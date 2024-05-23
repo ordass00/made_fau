@@ -8,7 +8,7 @@ What is the correlation between CO2 emissions and global temperature rise, and h
 ## Description
 
 <!-- Describe your data science project in max. 200 words. Consider writing about why and how you attempt it. -->
-Understanding the relationship between CO2 emissions and temperature is crucial in addressing climate change, as it impacts not only the global environment but also the economic stability and health of societies wordwide. Therefore, this project analyzes the correlation between CO2 emissions and temperature rise on a global and regional scale. Using historical data from sources as the ..., I will use statistical methods and data visualization techniques to explore these trends over time and identify key patterns and potential countermeasures to alleviate the effects of climate change. By investigating regional variations, the project aims to discover specific patterns and imbalances in how strongly regions are affected by CO2 emissions. The results can provide valuable insights into whether regional climate policies are effective and help to mitigate the climate change. This can help decision makers in the designated regions tailor their strategies to reduce the impact of climate change even more effectively and identfy areas where more effort is needed.
+Understanding the relationship between CO2 emissions and temperature is crucial in addressing climate change, as it impacts not only the global environment but also the economic stability and health of societies wordwide. Therefore, this project analyzes the correlation between CO2 emissions and temperature rise on a global and regional scale. Applying statistical methods and data visualization techniques to historical CO2 emission and temperature data allows to explore these trends over time and aims to identify key patterns and potential countermeasures to alleviate the effects of climate change. By investigating regional variations, the project aims to discover specific patterns and imbalances in how strongly regions are affected by CO2 emissions. The results can provide valuable insights into whether regional climate policies are effective and help to mitigate the climate change. This can help decision makers in the designated regions tailor their strategies to reduce the impact of climate change even more effectively and identfy areas where more effort is needed.
 
 ## Datasources
 
@@ -20,15 +20,13 @@ Understanding the relationship between CO2 emissions and temperature is crucial 
 * Data Type: CSV
 * Dataset description: This dataset contains data about global CO2 and greenhouse gas emissions by country and region over time
 
-
-
 ### Datasource 2: HadCRUT5
 * Metadata URL: https://crudata.uea.ac.uk/cru/data/temperature/
-* Data URL: https://github.com/owid/co2-data/blob/master/owid-co2-data.csv
+* Data URL: https://crudata.uea.ac.uk/cru/data/temperature/HadCRUT.5.0.2.0.analysis.anomalies.ensemble_mean.nc
 * Data Type: netCDF, Text
 * Dataset description: This dataset contains global land and temperature anomalies from 1850 to the present
 
-### Datasource 3: Climate Change: Earth Surface Temperature Data
+### Datasource 3: Climate Change: Earth Surface Temperature Data (Backup/Optional Dataset)
 * Metadata URL: https://www.kaggle.com/datasets/berkeleyearth/climate-change-earth-surface-temperature-data
 * Data URL: https://www.kaggle.com/datasets/berkeleyearth/climate-change-earth-surface-temperature-data/data?select=GlobalLandTemperaturesByCountry.csv
 * Data Type: CSV
