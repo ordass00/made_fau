@@ -5,7 +5,7 @@ import cftime
 from netCDF4 import Dataset
 
 
-# Temperature anamoly dataset from HADCRUT5
+# Temperature anomaly dataset from HADCRUT5
 hadcrut5_data_url = "https://crudata.uea.ac.uk/cru/data/temperature/HadCRUT.5.0.2.0.analysis.anomalies.ensemble_mean.nc#mode=bytes"
 # CO2 emission dataset from Our World in Data
 co2_data_url = "https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv"

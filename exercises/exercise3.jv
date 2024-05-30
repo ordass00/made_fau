@@ -1,0 +1,78 @@
+pipeline GoodsByTrainPipeline {
+
+    block GoodsByTrainHttpExtractor oftype HttpExtractor {
+        url: "https://www-genesis.destatis.de/genesis/downloads/00/tables/46131-0014_00.csv";
+    }
+
+    block GoodsByTrainTextFileInterpreter oftype TextFileInterpreter {
+        encoding: "latin2";
+    }
+
+    block GoodsByTrainCSVInterpreter oftype CSVInterpreter {
+        delimiter: ";";
+    }
+
+    block MetaDataDeleter oftype RowDeleter {
+        delete: [row 1, row 2, row 3, row 4, row 5, row 6, row 8, row 41338, row 41339];
+    }
+
+    block NameHeaderWriter oftype CellWriter {
+        at: range A1:E1;
+        write: ["year", "month", "goods_id", "goods_name", "goods_source"];
+    }
+
+    block RenameHeaderWriter oftype CellWriter {
+        at: range AT1:AU1;
+        write: ["abroad", "total"];
+    }
+
+    block GoodsByTrainTableInterpreter oftype TableInterpreter {
+        header: true;
+        columns: [
+            "year" oftype NumericType,
+            "month" oftype MonthType,
+            "goods_id" oftype GoodsIDType,
+            "goods_name" oftype text,
+            "goods_source" oftype text,
+            "abroad" oftype NumericType,
+            "total" oftype NumericType
+        ];
+    }
+
+    block GoodsByTrainLoader oftype SQLiteLoader {
+        table: "goods";
+        file: "./goodsTransportedByTrain.sqlite";
+    }
+
+    GoodsByTrainHttpExtractor
+        -> GoodsByTrainTextFileInterpreter
+        -> GoodsByTrainCSVInterpreter
+        -> MetaDataDeleter
+        -> NameHeaderWriter
+        -> RenameHeaderWriter
+        -> GoodsByTrainTableInterpreter
+        -> GoodsByTrainLoader;
+
+    valuetype NumericType oftype integer {
+        constraints: [NumericValuesConstraint];
+    }
+
+    valuetype MonthType oftype text {
+        constraints: [MonthConstraint];
+    }
+
+    valuetype GoodsIDType oftype text {
+        constraints: [GoodsIDConstraint];
+    }
+
+    constraint NumericValuesConstraint on decimal:
+        value > 0;
+
+    constraint MonthConstraint oftype RegexConstraint {
+        regex: /^(Januar|Februar|März|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember)$/;
+    }
+
+    constraint GoodsIDConstraint oftype RegexConstraint {
+        regex: /^NST7-[A-Z0-9]{3}$/;
+    }
+}
