@@ -57,7 +57,7 @@ pipeline TemperaturePipeline {
         Fahrenheit: (Celsius * 9/5) + 32;
     }
 
-    block GoodsByTrainLoader oftype SQLiteLoader {
+    block TemperatureLoader oftype SQLiteLoader {
         table: "temperatures";
         file: "./temperatures.sqlite";
     }
@@ -72,7 +72,7 @@ pipeline TemperaturePipeline {
         -> TemperatureTableInterpreter
         -> CelsiusToFahrenheitTemperatureTransformer
         -> CelsiusToFahrenheitBatteryTemperatureTransformer
-        -> GoodsByTrainLoader;
+        -> TemperatureLoader;
 
     valuetype IDType oftype integer {
         constraints: [IDConstraint];
