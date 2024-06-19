@@ -1,0 +1,29 @@
+name: Project Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+    project-tests:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: Set Up Python 3.11
+              uses: actions/setup-python@v4
+              with:
+                python-version: 3.11
+
+            - name: Install dependencies
+              run: |
+                python -m pip install --upgrade pip
+                pip install pandas numpy cftime netCDF4
+            
+            - name: Run tests
+              run: |
+                chmod u+r+x ./project/test.sh
+                cd ./project
+                ./test.sh
