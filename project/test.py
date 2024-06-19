@@ -71,8 +71,8 @@ def test_non_empty_country_values(db_path, table_name):
     assert result["country"].notna().all(), "Country values cannot be empty."
 
 def main():
-    co2_emission_db_path = "./data/co2_emission_dataset.sqlite"
-    temperature_db_path = "./data/temperature_dataset.sqlite"
+    co2_emission_db_path = "../data/co2_emission_dataset.sqlite"
+    temperature_db_path = "../data/temperature_dataset.sqlite"
 
     co2_emission_table_name = "co2_emissions"
     temperature_table_name = "temperature_anomalies"

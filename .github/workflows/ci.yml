@@ -20,8 +20,8 @@ jobs:
             - name: Install dependencies
               run: |
                 python -m pip install --upgrade pip
-                pip install pandas numpy cftime netCDF4
-            
+                pip install pandas numpy cftime netCDF4 requests
+
             - name: Run tests
               run: |
                 chmod u+r+x ./project/test.sh
