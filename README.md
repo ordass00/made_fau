@@ -43,6 +43,7 @@ refers to analyses conducted on a few selected countries.*
 
 ## Links to Ressources
 - Final Report as [PDF](https://github.com/ordass00/made_fau/blob/main/project/analysis-report.pdf)
+- Final Presentation as [PDF](https://github.com/ordass00/made_fau/blob/main/project/slides.pdf)
 
 ## Author
 - **Oliver Dassinger**
